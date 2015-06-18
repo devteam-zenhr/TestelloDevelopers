@@ -1,0 +1,303 @@
+html{
+  background-color: transparent !important;
+}
+body{
+  font-family: "Lato",sans-serif;
+  color: #333333;
+  text-shadow: transparent 0 0 0 !important;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+a{
+  cursor: pointer;
+}
+h1, h2{
+  color: #3fba8c;
+}
+.form-control:focus {
+  border-color: #3fba8c;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3fba8c;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #3fba8c;
+}
+.main-jumbotron{
+  background-image: url(homepage-hero-img.jpg);
+  background-position: center top;
+  background-size: cover;
+  color: #333333;
+  padding: 10px 0px 0px 0;
+}
+.section{
+  border-bottom: 2px dotted #cccccc;
+  margin: 0 0 30px 0;
+  padding-bottom: 45px;
+}
+.margin-bottom{
+  margin-bottom: 25px;
+}
+.margin-bottom-2x{
+  margin-bottom: 50px;
+}
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-brand{
+  height: auto;
+}
+.navbar-nav, .btn {
+  text-transform: uppercase;
+}
+.navbar-header, .mastfoot, .cover-container {
+  width: 100%;
+}
+.cover{
+  text-align: left;
+  padding: 30px 0;
+  border-top: 1px solid #CEDBD4;
+}
+.navbar-collapse{
+  padding: 12px 0;
+  text-align: right;
+  overflow: visible;
+}
+.navbar-header li{
+  cursor: pointer;
+}
+.navbar-nav > li > a{
+  color: #333333;
+}
+.navbar-nav>li>a:hover, .navbar-nav>li>a.active, .navbar-nav>li>a:focus{
+  color: #3fba8c !important;
+  font-weight: bold;
+  border-bottom: none;
+}
+.navbar-collapse.in {
+  overflow-y: visible;
+}
+.navbar-toggle {
+  margin-top: 25px;
+}
+.cover-heading{
+  text-align: center;
+  padding: 10px 0 45px 0;
+}
+.cover-heading h1, .cover-heading h3{
+  margin: 0;
+}
+.cover-heading h3{
+  color: #cccccc;
+}
+.checkbox-list{
+  padding-left: 0 !important;
+  list-style: none;
+}
+.checkbox-list li{
+  background: url(checkbox-green.png) no-repeat;
+  list-style: none;
+  padding-left: 25px;
+  padding-bottom: 15px;
+  text-align: left;
+}
+.checkbox-list li>ul>li{
+  background: none;
+  list-style: circle;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+.features-div .jumbotron{
+  margin-bottom: 0;
+  border-radius: 0;
+  text-align: left;
+}
+h1{
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-weight: bold;
+}
+h2{
+  margin-bottom: 20px;
+  font-size: 39px;
+  font-weight: bold;
+}
+.white-jumbo{
+  background-color: #ffffff;
+  border: 10px solid #ccc;
+}
+.green-jumbo{
+  background-color: #3eb98c;
+  color: #ffffff;
+}
+.green-jumbo li{
+  background: url(checkbox-white.png) no-repeat;
+}
+.lightgreen-jumbo{
+  background-color: #d9ede2;
+}
+.sticky-img{
+  bottom: -51px;
+  position: inherit;
+}
+.testimonials h4{
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+/*Start BUTTONS*/
+.btn{
+  border: 0 !important;
+}
+.green-btn{
+  background-color: #3fba8c;
+  color: #ffffff;
+}
+.green-btn:hover{
+  background-color: #33A178;
+  color: #ffffff;
+}
+.transparent-btn{
+  background-color: transparent;
+  color: #bc2187 !important;
+  border: 1px solid #bc2187 !important;
+  font-weight: bold;
+}
+.transparent-btn:hover{
+  background-color: transparent;
+  color: #761655 !important;
+  border: 1px solid #761655 !important;
+}
+.white-btn{
+  background-color: #ffffff;
+  color: #333333;
+}
+.white-btn:hover{
+  background-color: #f2f2f2;
+  color: #333333;
+}
+.green-link{
+  color: #3fba8c !important;
+}
+.green-link:hover{
+  color: #33A178 !important;
+}
+.grey-link{
+  color: #333333 !important;
+}
+.grey-link:hover{
+  color: #ffffff !important;
+}
+/*END BUTTONS*/
+
+
+.margin-top{
+  margin-top: 20px;
+}
+.company-logo img{
+  max-height: 90px;
+  margin: 0 auto 15px;
+  opacity: 1;
+}
+.company-logo img:hover{
+  opacity: 0.5;
+}
+.testimonials{
+  margin-top: 30px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  min-height: 400px;
+}
+.testimonials-img-div{
+  height: 106px;
+}
+.thumbnail{
+  border: 1px solid #ebebeb;
+}
+.thumbnail p{
+  min-height: 100px;
+}
+.thumbnail-customized{
+  border: 2px solid #3fba8c;
+  background-color: #EAF7F2;
+}
+.team-box{
+  margin-right: 30px;
+  margin-top: 30px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid #3fba8c;
+  text-align: justify;
+}
+.team-box h4{
+  margin-bottom: 0;
+}
+.cta-well{
+  margin-top: 35px;
+  font-size: 20px;
+  border: 1px solid #F4F4F4;
+  background-color: #ffffff;
+  color: #bc2187;
+}
+.cover .btn-lg {
+  padding: 15px 25px;
+  font-weight: normal;
+}
+.team-section a{
+  color: #3fba8c;
+  font-weight: bold;
+}
+.team-section img{
+  width: 200px;
+  margin: 0 auto;
+}
+.logo{
+  height: 44px;
+  float: left;
+}
+.jumbotron h1 {
+  font-size: 62px;
+  color: #3fba8c;
+}
+.test-div{
+  text-align: justify;
+  border-bottom: 2px dotted #cccccc;
+  padding: 30px 0 40px 0;
+}
+.test-div ul{
+  padding-left: 17px;
+  list-style-type: lower-alpha;
+}
+.nav-pills a{
+  color: #bc2187;
+}
+
+/*FOOTER*/
+footer{
+  background-color: #333333;
+  margin-top: 20px;
+  padding: 20px 0;
+  color: #ffffff;
+}
+footer a{
+  color: #ffffff;
+  padding: 0 15px;
+  text-transform: uppercase;
+}
+footer a:hover{
+  text-decoration: none;
+  color: #3fba8c;
+}
+footer a:first-child{
+  padding-left: 0;
+}
+
+#layout_container {
+  min-height: 70%;
+  position: relative;
+}
+
+p {
+  text-align: justify;
+}
+table th, td {
+  padding-right: 10px;
+}

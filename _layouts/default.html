@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="jumbotron main-jumbotron">
+      <div class="container">
+        {% include header.html %}
+      </div>
+    </div>
+    <div class="container" id="layout_container">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
