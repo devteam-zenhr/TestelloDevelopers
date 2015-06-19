@@ -51,10 +51,113 @@ Testello will respond to all API calls with a JSON encoded hash. The simplest re
 
 * * *
 
+# Company API
+The Company API can be accessed with the following URL:  
+  http://testello.com/api/v1/company
+
+The following table lists the keys that are required to request the company API:
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|-----+-----------|
+
+* * *
+
+If this request is successful, it will return a hash that contains the key **data**, the value of this key will be an array of hashes that represents your company's information.
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|credit   |This will be a hash that includes the quantity of your credits and it's expiry date, the quantity and expiry date will be your indicator in creating new sessions later on|
+|test_taker_params |This will be a hash of hashes that includes your customized test taker schema, each hash will have the keys: “ar” and “en”. Each one’s value will be the name of your customized test taker attributes in Arabic and in English respectively, by default this hash will include first_name, last_name, and email|
+|-----+-----------|
+
+* * *
+
+### Examples
+The following code retrieves credit and test_taker_params for a company with ID **1**:  
+
+#### Ruby
+{% highlight ruby startinline=true %}
+payload = { company_id: 1 }
+
+# Sending the signed request:
+send_request(payload, 'company', @secret, "GET")
+{% endhighlight %}
+
+#### PHP
+{% highlight php startinline=true %}
+$payload = (array('company_id' => 1));
+
+// Sending the signed request:
+sendRequest($payload, 'company', $secret, "GET");
+{% endhighlight %}
+
+#### Python
+{% highlight python startinline=true %}
+payload = { 'company_id': 1 }
+
+# Sending the signed request:
+send_request(payload, 'company', secret, "GET")
+{% endhighlight %}
+
+#### ASP .NET C\#
+{% highlight c# startinline=true %}
+Dictionary<string, int> payload = 
+            new Dictionary<string, int>();
+payload.Add("company_id", 1);
+
+// Sending the signed request:
+sendRequest(payload, "company", secret, "GET");
+{% endhighlight %}
+
+#### ASP .NET C++
+{% highlight c++ startinline=true %}
+Dictionary<String^, int^>^ payload = 
+            gcnew Dictionary<String^, int^>();
+payload->Add("company_id", 1);
+
+// Sending the signed request:
+sendRequest(payload, "company", secret, "GET");
+{% endhighlight %}
+
+The following is an example of how a response might look:
+{% highlight javascript %}
+{
+  "data": {
+    "credit": {
+      "quantity": 10,
+      "expires_at": "2016-06-19T00: 00: 00.000Z"
+    },
+    "test_taker_params": {
+      "first_name": {
+        "en": "first_name",
+        "ar": "الاسم الأول"
+      },
+      "last_name": {
+        "en": "last_name",
+        "ar": "إسم العائلة"
+      },
+      "email": {
+        "en": "email",
+        "ar": "البريد الإلكتروني"
+      }
+    }
+  }
+}
+{% endhighlight %}
+
+
 # Tests API
-The Tests API can be accessed with the following URL:
-  http://testello.com/api/v1/tests
-  The Tests API supports the following actions:
+The Tests API can be accessed with the following URL:  
+  http://testello.com/api/v1/tests  
+  The Tests API supports the following action:
 
 * * *
 
@@ -176,6 +279,114 @@ The following is an example of how a response might look:
   ]
 }
 {% endhighlight %}
+
+# Test Bundles API
+The Tests API can be accessed with the following URL:  
+  http://testello.com/api/v1/test_bundles  
+  The Test Bundles API supports the following action:
+
+* * *
+
+|-------+-----------|
+|Action |Description|
+|-------|-----------|
+|index  |Lists all the test bundles the company have.|
+|-------+-----------|
+
+* * *
+
+More details on the exact requirements of each action is provided below.
+
+## Listing Test Bundles
+The following table lists the keys that are required to request a list of all test bundles the company have:
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|-----+-----------|
+
+* * *
+
+If this request is successful, it will return a hash that contains the key **data**, the value of this key will be an array of hashes that represents each test bundle available.
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|id   |The test bundle's ID, this is what should be used in creating sessions or listing test takers results later on|
+|name |The name of the test bundle.|
+|test_ids|This will be an array representing the tests included in the test bundle|
+|-----+-----------|
+
+* * *
+
+### Examples
+The following code retrieves all test bundles for a company with ID **1**:  
+
+#### Ruby
+{% highlight ruby startinline=true %}
+payload = { company_id: 1 }
+
+# Sending the signed request:
+send_request(payload, 'test_bundles', @secret, "GET")
+{% endhighlight %}
+
+#### PHP
+{% highlight php startinline=true %}
+$payload = (array('company_id' => 1));
+
+// Sending the signed request:
+sendRequest($payload, 'test_bundles', $secret, "GET");
+{% endhighlight %}
+
+#### Python
+{% highlight python startinline=true %}
+payload = { 'company_id': 1 }
+
+# Sending the signed request:
+send_request(payload, 'test_bundles', secret, "GET")
+{% endhighlight %}
+
+#### ASP .NET C\#
+{% highlight c# startinline=true %}
+Dictionary<string, int> payload = 
+            new Dictionary<string, int>();
+payload.Add("company_id", 1);
+
+// Sending the signed request:
+sendRequest(payload, "test_bundles", secret, "GET");
+{% endhighlight %}
+
+#### ASP .NET C++
+{% highlight c++ startinline=true %}
+Dictionary<String^, int^>^ payload = 
+            gcnew Dictionary<String^, int^>();
+payload->Add("company_id", 1);
+
+// Sending the signed request:
+sendRequest(payload, "test_bundles", secret, "GET");
+{% endhighlight %}
+
+The following is an example of how a response might look:
+{% highlight javascript %}
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "Bundle X",
+      "test_ids": [
+        5,
+        6
+      ]
+    }
+  ]
+}
+{% endhighlight %}
+
 
 # Sessions API
 The Sessions API can be accessed with the following URL:
@@ -486,9 +697,10 @@ If this request is successful, it will return an empty hash, but the response *s
 * * *
 
 ### Examples
-The following code creates a new session for a company with ID **1**:  
 
-#### Ruby
+#### Single sessions
+
+##### Ruby
 {% highlight ruby startinline=true %}
 payload = { company_id: 1, session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
@@ -496,18 +708,85 @@ payload = { company_id: 1, session: { quantity: 1, schema_params: { first_name: 
 send_request(payload, 'sessions', @secret, "POST")
 {% endhighlight %}
 
-#### PHP
+##### PHP
 {% highlight php startinline=true %}
+$expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
+$payload = (array('company_id' => 1, array('session' => 'quantity' => 1, (array('schema_params' => 'first_name' => 'Jon', 'last_name' => 'Snow', 'email' => 'jon.snow@testello.com')), 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
+
+//Sending the signed request:
+sendRequest($payload, 'sessions', $secret, "POST");
 {% endhighlight %}
 
-#### Python
+##### Python
 {% highlight python startinline=true %}
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
+
+expires_at = datetime.now() + relativedelta(months=1)
+payload = { 'company_id': 1, 'session': { 'quantity': 1, 'schema_params': { 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon.snow@testello.com' }, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
+
+# Sending the signed request:
+send_request(payload, 'sessions', secret, "POST")
 {% endhighlight %}
 
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
+#### Mass sessions
+
+#####  Ruby
+{% highlight ruby startinline=true %}
+payload = { company_id: 1, session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
+
+# Sending the signed request:
+send_request(payload, 'sessions', @secret, "POST")
 {% endhighlight %}
 
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
+##### PHP
+{% highlight php startinline=true %}
+$expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
+$payload = (array('company_id' => 1, array('session' => 'quantity' => 10, 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
+
+//Sending the signed request:
+sendRequest($payload, 'sessions', $secret, "POST");
+{% endhighlight %}
+
+##### Python
+{% highlight python startinline=true %}
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
+
+expires_at = datetime.now() + relativedelta(months=1)
+payload = { 'company_id': 1, 'session': { 'quantity': 10, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
+
+# Sending the signed request:
+send_request(payload, 'sessions', secret, "POST")
+{% endhighlight %}
+
+#### Mass test bundle sessions
+
+##### Ruby
+{% highlight ruby startinline=true %}
+payload = { company_id: 1, session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
+
+# Sending the signed request:
+send_request(payload, 'sessions', @secret, "POST")
+{% endhighlight %}
+
+##### PHP
+{% highlight php startinline=true %}
+$expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
+$payload = (array('company_id' => 1, array('session' => 'quantity' => 3, 'expires_at' => $expires_at, 'test_bundle_id' => 108, 'language' => 'en'));
+
+//Sending the signed request:
+sendRequest($payload, 'sessions', $secret, "POST");
+{% endhighlight %}
+
+##### Python
+{% highlight python startinline=true %}
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
+
+expires_at = datetime.now() + relativedelta(months=1)
+payload = { 'company_id': 1, 'session': { 'quantity': 3, 'expires_at': expires_at, 'test_bundle_id': 108, 'language': 'en' } } }
+
+# Sending the signed request:
+send_request(payload, 'sessions', secret, "POST")
 {% endhighlight %}
