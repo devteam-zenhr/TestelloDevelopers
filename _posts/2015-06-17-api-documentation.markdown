@@ -84,14 +84,16 @@ If this request is successful, it will return a hash that contains the key **dat
 The following code retrieves credit and test_taker_params for a company with ID **1**:  
 
 #### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1 }
 
 # Sending the signed request:
-send_request(payload, 'company', @secret, "GET")
+send_request(payload, 'company', @secret)
 {% endhighlight %}
 
 #### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $payload = (array('company_id' => 1));
 
@@ -100,31 +102,12 @@ sendRequest($payload, 'company', $secret, "GET");
 {% endhighlight %}
 
 #### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 payload = { 'company_id': 1 }
 
 # Sending the signed request:
 send_request(payload, 'company', secret, "GET")
-{% endhighlight %}
-
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
-Dictionary<string, int> payload = 
-            new Dictionary<string, int>();
-payload.Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "company", secret, "GET");
-{% endhighlight %}
-
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
-Dictionary<String^, int^>^ payload = 
-            gcnew Dictionary<String^, int^>();
-payload->Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "company", secret, "GET");
 {% endhighlight %}
 
 The following is an example of how a response might look:
@@ -192,7 +175,7 @@ If this request is successful, it will return a hash that contains the key **dat
 |Name |Description|
 |-----|-----------|
 |id   |The test’s ID, this is what should be used in creating sessions or listing test takers results later on|
-|name |The name of the test. This will be a hash with the keys: “ar” and “en”. Each one’s value will be the exam’s name in Arabic, and English respectively|
+|name |The name of the test. This will be a hash with the keys: “ar” and “en”. Each one’s value will be the test’s name in Arabic, and English respectively|
 |duration|This will be an integer representing the test’s full time in minutes|
 |languages|This will be an array representing languages supported by the test|
 |pass_percentage|This will be an integer representing the minimum percentage required to pass, if the test doesn’t have a pass percentage this field will have an empty value|
@@ -204,14 +187,16 @@ If this request is successful, it will return a hash that contains the key **dat
 The following code retrieves all the tests for a company with ID **1**:  
 
 #### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1 }
 
 # Sending the signed request:
-send_request(payload, 'tests', @secret, "GET")
+send_request(payload, 'tests', @secret)
 {% endhighlight %}
 
 #### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $payload = (array('company_id' => 1));
 
@@ -220,31 +205,12 @@ sendRequest($payload, 'tests', $secret, "GET");
 {% endhighlight %}
 
 #### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 payload = { 'company_id': 1 }
 
 # Sending the signed request:
 send_request(payload, 'tests', secret, "GET")
-{% endhighlight %}
-
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
-Dictionary<string, int> payload = 
-            new Dictionary<string, int>();
-payload.Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "tests", secret, "GET");
-{% endhighlight %}
-
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
-Dictionary<String^, int^>^ payload = 
-            gcnew Dictionary<String^, int^>();
-payload->Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "tests", secret, "GET");
 {% endhighlight %}
 
 The following is an example of how a response might look:
@@ -281,7 +247,7 @@ The following is an example of how a response might look:
 {% endhighlight %}
 
 # Test Bundles API
-The Tests API can be accessed with the following URL:  
+The Test Bundles API can be accessed with the following URL:  
   http://testello.com/api/v1/test_bundles  
   The Test Bundles API supports the following action:
 
@@ -328,14 +294,16 @@ If this request is successful, it will return a hash that contains the key **dat
 The following code retrieves all test bundles for a company with ID **1**:  
 
 #### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1 }
 
 # Sending the signed request:
-send_request(payload, 'test_bundles', @secret, "GET")
+send_request(payload, 'test_bundles', @secret)
 {% endhighlight %}
 
 #### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $payload = (array('company_id' => 1));
 
@@ -344,6 +312,7 @@ sendRequest($payload, 'test_bundles', $secret, "GET");
 {% endhighlight %}
 
 #### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 payload = { 'company_id': 1 }
 
@@ -351,27 +320,8 @@ payload = { 'company_id': 1 }
 send_request(payload, 'test_bundles', secret, "GET")
 {% endhighlight %}
 
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
-Dictionary<string, int> payload = 
-            new Dictionary<string, int>();
-payload.Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "test_bundles", secret, "GET");
-{% endhighlight %}
-
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
-Dictionary<String^, int^>^ payload = 
-            gcnew Dictionary<String^, int^>();
-payload->Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "test_bundles", secret, "GET");
-{% endhighlight %}
-
 The following is an example of how a response might look:
+
 {% highlight javascript %}
 {
   "data": [
@@ -389,13 +339,13 @@ The following is an example of how a response might look:
 
 
 # Sessions API
-The Sessions API can be accessed with the following URL:
+The Sessions API can be accessed with the following URLs:
 
   1. GET  http://testello.com/api/v1/sessions
   2. GET  http://testello.com/api/v1/sessions/:session_id
   3. POST http://testello.com/api/v1/sessions
 
-  The Tests API supports the following actions:
+  The Sessions API supports the following actions:
 
 * * *
 
@@ -442,17 +392,19 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all the tests for a company with ID **1**:  
+The following code retrieves all the sessions for a company with ID **1**:  
 
 #### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1 }
 
 # Sending the signed request:
-send_request(payload, 'sessions', @secret, "GET")
+send_request(payload, 'sessions', @secret)
 {% endhighlight %}
 
 #### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $payload = (array('company_id' => 1));
 
@@ -461,6 +413,7 @@ sendRequest($payload, 'sessions', $secret, "GET");
 {% endhighlight %}
 
 #### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 payload = { 'company_id': 1 }
 
@@ -468,27 +421,8 @@ payload = { 'company_id': 1 }
 send_request(payload, 'sessions', secret, "GET")
 {% endhighlight %}
 
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
-Dictionary<string, int> payload = 
-            new Dictionary<string, int>();
-payload.Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "sessions", secret, "GET");
-{% endhighlight %}
-
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
-Dictionary<String^, int^>^ payload = 
-            gcnew Dictionary<String^, int^>();
-payload->Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "sessions", secret, "GET");
-{% endhighlight %}
-
 The following is an example of how a response might look:
+
 {% highlight javascript %}
 {
   "data": [
@@ -572,14 +506,16 @@ If this request is successful, it will return a hash that contains the key **dat
 The following code retrieves a session's information for a company with ID **1** and a session ID **9236**:  
 
 #### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1 }
 
 # Sending the signed request:
-send_request(payload, 'sessions/9236', @secret, "GET")
+send_request(payload, 'sessions/9236', @secret)
 {% endhighlight %}
 
 #### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $payload = (array('company_id' => 1));
 
@@ -588,6 +524,7 @@ sendRequest($payload, 'sessions/9236', $secret, "GET");
 {% endhighlight %}
 
 #### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 payload = { 'company_id': 1 }
 
@@ -595,27 +532,8 @@ payload = { 'company_id': 1 }
 send_request(payload, 'sessions/9236', secret, "GET")
 {% endhighlight %}
 
-#### ASP .NET C\#
-{% highlight c# startinline=true %}
-Dictionary<string, int> payload = 
-            new Dictionary<string, int>();
-payload.Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "sessions/9236", secret, "GET");
-{% endhighlight %}
-
-#### ASP .NET C++
-{% highlight c++ startinline=true %}
-Dictionary<String^, int^>^ payload = 
-            gcnew Dictionary<String^, int^>();
-payload->Add("company_id", 1);
-
-// Sending the signed request:
-sendRequest(payload, "sessions/9236", secret, "GET");
-{% endhighlight %}
-
 The following is an example of how a response might look:
+
 {% highlight javascript %}
 {
   "data": [
@@ -701,6 +619,7 @@ If this request is successful, it will return an empty hash, but the response *s
 #### Single sessions
 
 ##### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1, session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
@@ -709,6 +628,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {% endhighlight %}
 
 ##### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
 $payload = (array('company_id' => 1, array('session' => 'quantity' => 1, (array('schema_params' => 'first_name' => 'Jon', 'last_name' => 'Snow', 'email' => 'jon.snow@testello.com')), 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
@@ -718,11 +638,11 @@ sendRequest($payload, 'sessions', $secret, "POST");
 {% endhighlight %}
 
 ##### Python
+{:.no_toc}
 {% highlight python startinline=true %}
-from dateutil.relativedelta import relativedelta
-from datetime import datetime
+from datetime import date, timedelta
 
-expires_at = datetime.now() + relativedelta(months=1)
+expires_at = date.today() + timedelta(30).strftime('%Y-%m-%d')
 payload = { 'company_id': 1, 'session': { 'quantity': 1, 'schema_params': { 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon.snow@testello.com' }, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
 
 # Sending the signed request:
@@ -731,7 +651,8 @@ send_request(payload, 'sessions', secret, "POST")
 
 #### Mass sessions
 
-#####  Ruby
+##### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1, session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
@@ -740,6 +661,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {% endhighlight %}
 
 ##### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
 $payload = (array('company_id' => 1, array('session' => 'quantity' => 10, 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
@@ -749,11 +671,11 @@ sendRequest($payload, 'sessions', $secret, "POST");
 {% endhighlight %}
 
 ##### Python
+{:.no_toc}
 {% highlight python startinline=true %}
-from dateutil.relativedelta import relativedelta
-from datetime import datetime
+from datetime import date, timedelta
 
-expires_at = datetime.now() + relativedelta(months=1)
+expires_at = date.today() + timedelta(30).strftime('%Y-%m-%d')
 payload = { 'company_id': 1, 'session': { 'quantity': 10, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
 
 # Sending the signed request:
@@ -763,6 +685,7 @@ send_request(payload, 'sessions', secret, "POST")
 #### Mass test bundle sessions
 
 ##### Ruby
+{:.no_toc}
 {% highlight ruby startinline=true %}
 payload = { company_id: 1, session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
 
@@ -771,6 +694,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {% endhighlight %}
 
 ##### PHP
+{:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
 $payload = (array('company_id' => 1, array('session' => 'quantity' => 3, 'expires_at' => $expires_at, 'test_bundle_id' => 108, 'language' => 'en'));
@@ -780,6 +704,7 @@ sendRequest($payload, 'sessions', $secret, "POST");
 {% endhighlight %}
 
 ##### Python
+{:.no_toc}
 {% highlight python startinline=true %}
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
@@ -790,3 +715,320 @@ payload = { 'company_id': 1, 'session': { 'quantity': 3, 'expires_at': expires_a
 # Sending the signed request:
 send_request(payload, 'sessions', secret, "POST")
 {% endhighlight %}
+
+# Results API
+The Results API can be accessed with the following URL:
+
+  GET  http://testello.com/api/v1/results
+
+  The Results API supports the following actions:
+
+* * *
+
+|-------+-----------|
+|Action |Description|
+|-------|-----------|
+|index  |Lists all results for a certain test and/or for certain taken tests|
+|-------+-----------|
+
+* * *
+
+More details on the exact requirements of the action is provided below.
+
+## Listing Results (index)
+The following table lists the keys that are required to request a list of results:
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret|
+|test_id|This field should be an integer and is mandatory for a successful results API call, representing the test you want to retrieve it's results|
+|taken_test_ids: |This will be an array representing the ID(s) of taken test(s) you want to retrieve it's results|
+|-----+-----------|
+
+* * *
+
+If this request is successful, it will return a hash that contains the key **data**, the value of this key will be an array of hashes that represents each result for a test.
+
+* * *
+      "id": 1226,
+      "score": "33.0",
+      "start_time": "2015-01-27T09:01:32.915Z",
+      "duration": 58,
+      "test_taker": {
+        "data": {
+          "email": "u0CLZKIradqGI9N3JOC34w@assessmentcenter.com",
+          "last_name": "Hmaimat",
+          "first_name": "Majd"
+        }
+      }
+    },
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|id   |The taken test ID, this is what should be used when retrieving a result for a certain taken test(s)|
+|score |The score of a taken test. This will be a float string, i.e "33.0" representing the score of the taken test|
+|duration|This will be an integer representing the time it took a candidate to finish the test in minutes|
+|test_taker|This will be a hash that includes a data hash of your test taker schema. Each one’s value will be the one of your customized test taker attributes, by default the data hash will include first_name, last_name, and email|
+|test|This will be a hash that includes the test id, name, max score, and duration|
+|-----+-----------|
+
+* * *
+
+### Examples
+The following code retrieves the results of a test with ID **21** for a company with ID **1**:  
+
+#### Retrieving all results for a certain test
+
+##### Ruby
+{:.no_toc}
+{% highlight ruby startinline=true %}
+payload = { company_id: 1, test_id = 21 }
+
+# Sending the signed request:
+send_request(payload, 'results', @secret)
+{% endhighlight %}
+
+##### PHP
+{:.no_toc}
+{% highlight php startinline=true %}
+$payload = (array('company_id' => 1, 'test_id' => 21));
+
+// Sending the signed request:
+sendRequest($payload, 'results', $secret, "GET");
+{% endhighlight %}
+
+##### Python
+{:.no_toc}
+{% highlight python startinline=true %}
+payload = { 'company_id': 1, 'test_id': 21 }
+
+# Sending the signed request:
+send_request(payload, 'results', secret, "GET")
+{% endhighlight %}
+
+The following is an example of how a response might look:
+
+{% highlight javascript %}
+{
+  "data": [
+    {
+      "id": 13106,
+      "score": "33.0",
+      "start_time": "2015-01-27T09:01:32.915Z",
+      "duration": 58,
+      "test_taker": {
+        "data": {
+          "email": "jon.snow@testello.com",
+          "last_name": "Snow",
+          "first_name": "Jon"
+        }
+      }
+    },
+    {
+      "id": 13119,
+      "score": "34.0",
+      "start_time": "2015-02-11T18:30:21.566Z",
+      "duration": 58,
+      "test_taker": {
+        "data": {
+          "email": "john.jack@testello.com",
+          "last_name": "Snake",
+          "first_name": "John"
+        }
+      }
+    },
+    {
+      "test": {
+        "id": 34,
+        "name": {
+          "en": "IQ Test",
+          "ar": "إختبار الذكاء (IQ)"
+        },
+        "duration": 60,
+        "max_score": 60.0
+      }
+    }
+  ]
+}
+{% endhighlight %}
+
+#### Retrieving all results for a certain taken test(s)
+
+##### Ruby
+{:.no_toc}
+{% highlight ruby startinline=true %}
+payload = { company_id: 1, test_id = 21, taken_test_ids: [13106, 13119] }
+
+# Sending the signed request:
+send_request(payload, 'results', @secret)
+{% endhighlight %}
+
+##### PHP
+{:.no_toc}
+{% highlight php startinline=true %}
+$payload = (array('company_id' => 1, 'test_id' => 21, 'taken_test_ids' => array(13106, 13119)));
+
+// Sending the signed request:
+sendRequest($payload, 'results', $secret, "GET");
+{% endhighlight %}
+
+##### Python
+{:.no_toc}
+{% highlight python startinline=true %}
+payload = { 'company_id': 1, 'test_id': 21, 'taken_test_ids': [13106, 13119] }
+
+# Sending the signed request:
+send_request(payload, 'results', secret, "GET")
+{% endhighlight %}
+
+The following is an example of how a response might look:
+{% highlight javascript %}
+{
+  "data": [
+    {
+      "id": 13106,
+      "score": "33.0",
+      "start_time": "2015-01-27T09:01:32.915Z",
+      "duration": 58,
+      "test_taker": {
+        "data": {
+          "email": "jon.snow@testello.com",
+          "last_name": "Snow",
+          "first_name": "Jon"
+        }
+      }
+    },
+    {
+      "id": 13119,
+      "score": "34.0",
+      "start_time": "2015-02-11T18:30:21.566Z",
+      "duration": 58,
+      "test_taker": {
+        "data": {
+          "email": "john.jack@testello.com",
+          "last_name": "Snake",
+          "first_name": "John"
+        }
+      }
+    },
+    {
+      "test": {
+        "id": 34,
+        "name": {
+          "en": "IQ Test",
+          "ar": "إختبار الذكاء (IQ)"
+        },
+        "duration": 60,
+        "max_score": 60.0
+      }
+    }
+  ]
+}
+{% endhighlight %}
+
+# Appendix
+
+## Sending a signed request
+
+Below are simple examples that demonstrates sending an API call to Testello
+
+### Ruby
+{:.no_toc}
+{% highlight ruby startinline=true %}
+def send_request(payload, api, secret, method='GET')
+  payload = payload.to_json
+  params = { signed_request: "#{Base64.urlsafe_encode64(OpenSSL::HMAC.hexdigest('sha256', secret, payload))}.#{Base64.urlsafe_encode64(payload)}" }
+  uri = URI("http://www.testello.com/api/v1/#{api}")
+  accept = Mime::JSON
+  res = ''
+
+  if method == 'POST'
+    req = Net::HTTP::Post.new(uri)
+    req['Accept'] = accept
+    req.set_form_data(params)
+
+    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(req)
+    end
+  elsif method == 'GET'
+    uri.query = URI.encode_www_form(params)
+    req = Net::HTTP::Get.new(uri)
+    req['Accept'] = accept
+    res = Net::HTTP.start(uri.hostname, uri.pori) { |http| http.request(req) }
+  else
+    raise 'Unsupported method'
+  end
+  # Do something with res
+end
+{% endhighlight %}
+
+### PHP
+{:.no_toc}
+{% highlight php startinline=true %}
+<?php
+function send_request($data, $api, $secret, $method) { 
+  $payload     = json_encode($data);
+  $signature   = hash_hmac('sha256', $payload, $secret);
+  $b64Payload = base64_encode($payload);
+  $b64Sig     = base64_encode($signature);
+  $signedRequest = $b64Sig . '.' . $b64Payload;
+
+  $url = 'http://www.testello.com/api/v1' . $api;
+  $params = 'signed_request=' . urlencode($signedRequest);
+
+  // Open connection
+  $connection = curl_init();
+
+  curl_setopt($connection, CURLOPT_HTTPHEADER, array('Accept' => 'application/json'));
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+  if($method == 'POST') {
+    //set the url, number of POST vars, POST data
+    curl_setopt($connection, CURLOPT_URL, $url);
+    curl_setopt($connection, CURLOPT_POST, 1);
+    curl_setopt($connection, CURLOPT_POSTFIELDS, $params);
+  } elseif($method == 'GET') {
+    curl_setopt($connection, CURLOPT_URL, $url . '?' . $.params);
+  } else {
+    echo "Unsupported Method";
+  }
+
+  // Send request
+  $result = curl_exec($connection);
+
+  // Close connection
+  curl_close($connection);
+
+  parse_response($result);
+}
+?>
+{% endhighlight %}
+
+### Python
+{:.no_toc}
+{% highlight python startinline=true %}
+import base64
+import json
+import requests
+import hashlib
+import hmac
+from datetime import date, timedelta
+
+def send_request(payload, api, secret, method='GET')
+    headers = {'Accept': 'application/json'}
+    payload = json.dumps(payload)
+    signature = base64.urlsafe_b64encode(hmac.new(secret, payload.encode('utf-8'), hashlib.sha256).hexdigest())
+    uri = "http://www.testello.com/api/v1/%(api)s" %locals()
+    res = requests.request(method, url, params={'signed_request': signature + '.' + base64.urlsafe_b64encode(payload)}, headers=headers)
+    # Do something with res
+end
+{% endhighlight %}
+
+
+## Debugging
+
+We added support to respond with prettified JSON to help you read the responses you are receiving from our servers.
+To receive a prettified JSON response just add {% highlight ruby startinline=true %}pretty: true{% endhighlight %} to your payload hash.
