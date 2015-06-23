@@ -8,8 +8,16 @@ body{
   background-color: #ffffff;
   font-size: 16px;
 }
+
 a{
   cursor: pointer;
+  color: #3fba8c;
+}
+a:hover{
+  text-decoration: none;
+}
+
+
 }
 h1, h2{
   color: #3fba8c;
@@ -273,9 +281,11 @@ h2{
 /*FOOTER*/
 footer{
   background-color: #333333;
-  margin-top: 20px;
-  padding: 20px 0;
+  padding: 20px 0 5px 0;
+  width: 100%;
   color: #ffffff;
+  position: relative;
+  bottom: 0;
 }
 footer a{
   color: #ffffff;
@@ -300,4 +310,11 @@ p {
 }
 table th, td {
   padding-right: 10px;
+}
+
+/*BACKTOTOP BTN*/
+#top-link-block.affix {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }

@@ -1,9 +1,9 @@
 <footer>
   <div class="container">
     <div class="col-xs-8 text-left">
-      {% for page in site.pages %}
-        {% if page.title %}
-          <p><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></p>
+      {% for post in site.posts %}
+        {% if post.title %}
+          <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
         {% endif %}
       {% endfor %}
     </div>
