@@ -4,6 +4,19 @@ title:  "API Documentation"
 categories: jekyll update
 style: bootstrap.css
 ---
+{% contentfor head %}
+<script>
+$(document).ready(function(){
+  $(window).bind('scroll', function(){
+    if($(window).scrollTop() > 500) {
+      $('#top-link-block').show('slow');
+    } else {
+      $('#top-link-block').fadeOut(1000);
+    }
+  });
+});
+</script>
+{% endcontentfor %}
 {% contentfor navigation %}
 <span id="top-link-block" class="affix pull-right">
   <a href="#top" class="btn transparent-btn" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
@@ -60,7 +73,7 @@ Testello will respond to all API calls with a JSON encoded hash. The simplest re
 
 # Company API
 The Company API can be accessed with the following URL:  
-  http://testello.com/api/v1/company
+<p id="url">http://testello.com/api/v1/company</p>
 
 The following table lists the keys that are required to request the company API:
 
@@ -144,7 +157,7 @@ The following is an example of how a response might look:
 
 # Tests API
 The Tests API can be accessed with the following URL:  
-  http://testello.com/api/v1/tests  
+<p id="url">http://testello.com/api/v1/tests</p>
   The Tests API supports the following action:
 
 * * *
@@ -251,7 +264,7 @@ The following is an example of how a response might look:
 
 # Test Bundles API
 The Test Bundles API can be accessed with the following URL:  
-  http://testello.com/api/v1/test_bundles  
+<p id="url">http://testello.com/api/v1/test_bundles</p>
   The Test Bundles API supports the following action:
 
 * * *
@@ -342,9 +355,8 @@ The following is an example of how a response might look:
 # Sessions API
 The Sessions API can be accessed with the following URLs:
 
-  1. GET  http://testello.com/api/v1/sessions
-  2. GET  http://testello.com/api/v1/sessions/:session_id
-  3. POST http://testello.com/api/v1/sessions
+<p id="url">http://testello.com/api/v1/sessions</p>
+<p id="url">http://testello.com/api/v1/sessions/:session_id</p>
 
   The Sessions API supports the following actions:
 
@@ -715,7 +727,7 @@ send_request(payload, 'sessions', secret, "POST")
 # Results API
 The Results API can be accessed with the following URL:
 
-  GET  http://testello.com/api/v1/results
+  <p id="url">http://testello.com/api/v1/results</p>
 
   The Results API supports the following actions:
 
