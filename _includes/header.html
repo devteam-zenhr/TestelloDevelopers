@@ -12,7 +12,11 @@
             <img class="logo img-responsive" src="{{ASSET_PATH}}/testello_logo.png">
           </a>
         </span>
-        {% contentblock navigation %}
+        <span id="top-link-block" class="affix pull-right">
+          <a href="#top" class="btn transparent-btn" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <span class="fa fa-search">Back to Top</span>
+          </a>
+        </span>
       </div>
     </div>
   </div>

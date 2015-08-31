@@ -12,5 +12,15 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  {% contentblock head %}
+  <script>
+    $(document).ready(function(){
+      $(window).bind('scroll', function(){
+        if($(window).scrollTop() > 500) {
+          $('#top-link-block').show('slow');
+        } else {
+          $('#top-link-block').fadeOut(1000);
+        }
+      });
+    });
+  </script>
 </head>
