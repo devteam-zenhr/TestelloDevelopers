@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "API Documentation"
-categories: jekyll update
 style: bootstrap.css
 ---
 * Table of Content
