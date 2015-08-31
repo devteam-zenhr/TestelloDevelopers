@@ -1,13 +1,6 @@
 ---
 layout: default
 ---
-{% contentfor head %}
-<style>
-footer {
-  position: absolute;
-}
-</style>
-{% endcontentfor %}
 <div class="home">
   <ul class="post-list">
     {% for post in site.posts %}
@@ -19,3 +12,8 @@ footer {
     {% endfor %}
   </ul>
 </div>
+<style>
+footer {
+  position: absolute;
+}
+</style>
