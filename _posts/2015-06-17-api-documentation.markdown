@@ -51,6 +51,7 @@ Testello will respond to all API calls with a JSON encoded hash. The simplest re
 
 # Company API
 The Company API can be accessed with the following URL:  
+
 <p id="url">http://testello.com/api/v1/company</p>
 
 The following table lists the keys that are required to request the company API:
@@ -135,6 +136,7 @@ The following is an example of how a response might look:
 
 # Tests API
 The Tests API can be accessed with the following URL:  
+
 <p id="url">http://testello.com/api/v1/tests</p>
   The Tests API supports the following action:
 
@@ -242,6 +244,7 @@ The following is an example of how a response might look:
 
 # Test Bundles API
 The Test Bundles API can be accessed with the following URL:  
+
 <p id="url">http://testello.com/api/v1/test_bundles</p>
   The Test Bundles API supports the following action:
 
@@ -1008,4 +1011,4 @@ end
 ## Debugging
 
 We added support to respond with prettified JSON to help you read the responses you are receiving from our servers.
-To receive a prettified JSON response just add {% highlight ruby startinline=true %}pretty: true{% endhighlight %} to your payload hash.
+To receive a prettified JSON response just add {% highlight ruby startinline=true %} pretty: true {% endhighlight %} to your payload hash.
