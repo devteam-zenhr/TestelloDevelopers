@@ -323,3 +323,20 @@ table th, td {
 p#url {
   color: #3fba8c;
 }
+
+.container.bordered {
+  border: 1px solid #bc2187;
+  border-radius: 14px;
+}
+
+.col-md-4.border-right {
+  border-right: 1px dashed #3fba8c;
+}
+.col-md-4.border-right.affix-top {
+  position: static;
+}
+.col-md-4.border-right.affix {
+  position: fixed;
+  width: 21% !important;
+  margin-bottom: 30px;
+}

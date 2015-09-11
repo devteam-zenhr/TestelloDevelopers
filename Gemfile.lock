@@ -165,6 +165,3 @@ DEPENDENCIES
   github-pages
   guard-jekyll
   jekyll
-
-BUNDLED WITH
-   1.10.5

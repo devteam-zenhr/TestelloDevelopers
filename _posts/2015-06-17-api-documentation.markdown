@@ -3,8 +3,14 @@ layout: post
 title:  "API Documentation"
 style: bootstrap.css
 ---
+
+<div class='container bordered' markdown='1'>
+<div class='row'>
+<div class='col-md-4 border-right affix affix-top' markdown='1'>
 * Table of Content
 {:toc}
+</div>
+<div class='col-md-8 pull-right' markdown='1'>
 
 # Core Concepts
 
@@ -1011,4 +1017,7 @@ end
 ## Debugging
 
 We added support to respond with prettified JSON to help you read the responses you are receiving from our servers.
-To receive a prettified JSON response just add {% highlight ruby startinline=true %} pretty: true {% endhighlight %} to your payload hash.
+To receive a prettified JSON response just add   ```pretty: true``` to your payload hash.
+</div>
+</div>
+</div>
