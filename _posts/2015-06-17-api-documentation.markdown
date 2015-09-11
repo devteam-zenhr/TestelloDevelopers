@@ -80,7 +80,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves credit and test_taker_params for a company with ID **1**:  
+The following code retrieves credit and test_taker_params for a company with ID **16**:  
 
 #### Ruby
 {:.no_toc}
@@ -182,7 +182,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all the tests for a company with ID **1**:  
+The following code retrieves all the tests for a company with ID **16**:  
 
 #### Ruby
 {:.no_toc}
@@ -288,7 +288,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all test bundles for a company with ID **1**:  
+The following code retrieves all test bundles for a company with ID **16**:  
 
 #### Ruby
 {:.no_toc}
@@ -386,7 +386,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all the sessions for a company with ID **1**:  
+The following code retrieves all the sessions for a company with ID **16**:  
 
 #### Ruby
 {:.no_toc}
@@ -494,7 +494,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves a session's information for a company with ID **1** and a session ID **9236**:  
+The following code retrieves a session's information for a company with ID **16** and a session ID **9236**:  
 
 #### Ruby
 {:.no_toc}
@@ -756,7 +756,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves the results of a test with ID **21** for a company with ID **1**:  
+The following code retrieves the results of a test with ID **21** for a company with ID **16**:  
 
 #### Retrieving all results for a certain test
 
