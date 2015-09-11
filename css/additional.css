@@ -337,6 +337,6 @@ p#url {
 }
 .col-md-4.border-right.affix {
   position: fixed;
-  width: 21% !important;
+  width: 389px !important;
   margin-bottom: 30px;
 }

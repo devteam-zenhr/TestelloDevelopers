@@ -6,7 +6,7 @@ style: bootstrap.css
 
 <div class='container bordered' markdown='1'>
 <div class='row'>
-<div class='col-md-4 border-right affix affix-top' markdown='1'>
+<div class='col-md-4 border-right affix affix-top hidden-xs hidden-sm' markdown='1'>
 * Table of Content
 {:toc}
 </div>
