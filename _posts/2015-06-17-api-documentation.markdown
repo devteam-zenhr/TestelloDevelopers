@@ -605,7 +605,7 @@ The following table lists the keys that are required to create a new session:
 
 
 
-If this request is successful, it will return an empty hash, but the response *status* will be **201**.
+If this request is successful, it will return a hash that contains the key **data**, the value of this key will be an array of hashes that contains the session id and test link, the response *status* for this request will be **201**.
 
 * * *
 
@@ -709,6 +709,17 @@ payload = { 'company_id': 16, 'session': { 'quantity': 3, 'expires_at': expires_
 
 # Sending the signed request:
 send_request(payload, 'sessions', secret, "POST")
+{% endhighlight %}
+
+The following is an example of how a response might look:
+
+{% highlight javascript %}
+[
+  {
+    "id": 18749,
+    "test_link": "https://testello.com/en/take_test/omQxvYBGqY4TVpH7dUx9FY2"
+  }
+]
 {% endhighlight %}
 
 # Results API
@@ -917,6 +928,10 @@ The following is an example of how a response might look:
 {% endhighlight %}
 
 # Appendix
+
+## Callbacks
+
+Once a Test Taker finishes a test, **Testello** will initiate a GET request to your specified callback URL, the request will include a hash that contains the test id, taken test id, and result link.
 
 ## Sending a signed request
 
