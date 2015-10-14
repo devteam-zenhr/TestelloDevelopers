@@ -4,17 +4,20 @@ title:  "API Documentation"
 style: bootstrap.css
 ---
 
-<div class='container bordered' markdown='1'>
-<div class='row'>
-<div class='col-md-4 border-right affix affix-top hidden-xs hidden-sm' markdown='1'>
+<div id="sidebar-wrapper" markdown='1'>
 * Table of Content
 {:toc}
 </div>
-<div class='col-md-8 pull-right' markdown='1'>
+
+<div markdown='1' id='documentation'>
+<div class="container-fluid" markdown='1'>
+<div class="row" markdown='1'>
+<div class="col-lg-12" markdown='1'>
 
 # Core Concepts
 
 ## Authentication
+
 All Testello API calls regardless GET or POST requests must be sent with a parameter that is called signed_request. This parameter must be the concatenation of three strings: a base64 url-encoded HMAC SHA-256 signature, a period, and a base64 url-encoded JSON string (the JSON string is the request string and is henceforth referred to as the payload). The signature provides a way to verify the authenticity of all the incoming requests by verifying the sender's identity.
 
 Testello will provide you with a private key (secret) which must be used to sign your requests (generate the signature). All requests sent by you to the API must be signed correctly, otherwise, you will receive an error.
@@ -775,7 +778,7 @@ If this request is successful, it will return a hash that contains the key **dat
 ### Examples
 The following code retrieves the results of a test with ID **21** for a company with ID **16**:  
 
-#### Retrieving all results for a certain test
+#### Retrieving all results for a test
 
 ##### Ruby
 {:.no_toc}
@@ -851,7 +854,7 @@ The following is an example of how a response might look:
 ]
 {% endhighlight %}
 
-#### Retrieving all results for a certain taken test(s)
+#### Retrieving all results for taken test(s)
 
 ##### Ruby
 {:.no_toc}
@@ -929,13 +932,19 @@ The following is an example of how a response might look:
 
 # Appendix
 
-## Callbacks
+## What we need from you
 
-Once a Test Taker finishes a test, **Testello** will initiate a GET request to your specified callback URL, the request will include a hash that contains the test id, taken test id, and result link.
+### Callback URL
+
+Once a Test Taker finishes a test, **Testello** will initiate a POST request to your specified callback URL, the request will be signed with the secret we provided you with, the request body will include a payload hash that contains the test id, taken test id, and result link.
+
+### Redirection URL
+
+Once a Test Taker finishes a test, **Testello** will add a link that will redirect the user back to your website.
 
 ## Sending a signed request
 
-Below are simple examples that demonstrates sending an API call to Testello
+Below are simple examples that demonstrate sending an API call to Testello
 
 ### Ruby
 {:.no_toc}
@@ -1033,6 +1042,7 @@ end
 
 We added support to respond with prettified JSON to help you read the responses you are receiving from our servers.
 To receive a prettified JSON response just add   ```pretty: true``` to your payload hash.
+</div>
 </div>
 </div>
 </div>

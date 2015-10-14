@@ -4,21 +4,23 @@ $(document).ready(function(){
   $(window).bind('scroll', function(){
     if($(window).scrollTop() > 600) {
       $('#top-link-block').css({top: $(window).height() - ($('#back-to-top').outerHeight(true) + $('footer').outerHeight(true) + 40)});
+      $('#sidebar-wrapper').css({top: 50});
       $('#top-link-block').show('slow');
     } else {
+      $('#sidebar-wrapper').css({top: 160});
       $('#top-link-block').fadeOut(1000);
     }
   });
 
-  $('.col-md-4.border-right').affix({
+
+  $('#sidebar-wrapper').affix({
     offset: {
-      top: 10,
-      bottom: 235
+      top: 5
     }
   });
 
   $body.scrollspy({
-    target: '.col-md-4.border-right',
+    target: '#sidebar-wrapper',
     offset: 10
   });
 
