@@ -1027,7 +1027,7 @@ import hashlib
 import hmac
 from datetime import date, timedelta
 
-def send_request(payload, api, secret, method='GET')
+def send_request(payload, api, secret, method='GET'):
     headers = {'Accept': 'application/json'}
     payload = json.dumps(payload)
     signature = base64.urlsafe_b64encode(hmac.new(secret, payload.encode('utf-8'), hashlib.sha256).hexdigest())
