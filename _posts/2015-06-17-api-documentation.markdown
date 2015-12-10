@@ -923,8 +923,7 @@ The following is an example of how a response might look:
         "en": "IQ Test",
         "ar": "إختبار الذكاء (IQ)"
       },
-      "duration": 60,
-      "max_score": 60.0
+      "duration": 60
     }
   }
 ]
