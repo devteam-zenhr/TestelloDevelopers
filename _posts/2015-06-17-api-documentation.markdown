@@ -494,7 +494,7 @@ If this request is successful, it will return a hash that contains the key **dat
 |Name |Description|
 |-----|-----------|
 |id   | The taken test ID, this is what should be used when listing result information for a taken exam|
-|score| This will be a string representing the overall score for this taken test|
+|score| The score of a taken test. This will be a hash representing the score of the taken test in both English and Arabic languages|
 |done | This will be a boolean representing the taken test is finished or not|
 |link | This will be a string representing the taken test test url which will be used to continue the test in case something went wrong with your testing machine,  if the test is done this field will have an empty value|
 |test_id|This will be an integer representing the ID of the exam taken|
@@ -551,21 +551,27 @@ The following is an example of how a response might look:
     "taken_tests": [
       {
         "id": 3187,
-        "score": "78.0",
+        "score": {
+          "en": "78.0 - Pass",
+          "ar": "78.0 - نجاح"
+        }
         "done": true,
         "link": "http://testello.com/start_test/AlaZddcMIvr1LhZx417czw",
         "test_id": 21
       },
       {
         "id": 3188,
-        "score": "ESTJ",
+        "score": {
+          "en": "ESTJ",
+          "ar": "ESTJ"
+        }
         "done": true,
         "link": "http://testello.com/start_test/CyQ2dbQbZygu0YNOjgo-Jw",
         "test_id": 3
       },
       {
         "id": 3189,
-        "score": "",
+        "score": {},
         "done": false,
         "link": "http://testello.com/start_test/1INCsRU37URAgpOWhKuQEQ",
         "test_id": 14
@@ -767,10 +773,10 @@ If this request is successful, it will return a hash that contains the key **dat
 |Name |Description|
 |-----|-----------|
 |id   |The taken test ID, this is what should be used when retrieving a result for a certain taken test(s)|
-|score |The score of a taken test. This will be a float string, i.e "33.0" representing the score of the taken test|
+|score |The score of a taken test. This will be a hash representing the score of the taken test in both English and Arabic languages|
 |duration|This will be an integer representing the time it took a candidate to finish the test in minutes|
 |test_taker|This will be a hash that includes a data hash of your test taker schema. Each one’s value will be the one of your customized test taker attributes, by default the data hash will include first_name, last_name, and email|
-|test|This will be a hash that includes the test id, name, max score, and duration|
+|test|This will be a hash that includes the test id, name, and duration|
 |-----+-----------|
 
 * * *
@@ -783,7 +789,7 @@ The following code retrieves the results of a test with ID **21** for a company 
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, test_id = 21 }
+payload = { company_id: 16, test_id: 21 }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -815,7 +821,7 @@ The following is an example of how a response might look:
     "id": 13119,
     "start_time": "2015-02-11T18:30:21.566Z",
     "duration": 39,
-    "humanized_score": {
+    "score": {
       "en": "130 - Superior Intelligence"
     },
     "test_taker": {
@@ -830,7 +836,7 @@ The following is an example of how a response might look:
     "id": 13106,
     "start_time": "2015-01-27T09:01:32.915Z",
     "duration": 59,
-    "humanized_score": {
+    "score": {
       "en": "140 - Genius or near genius"
     },
     "test_taker": {
@@ -859,7 +865,7 @@ The following is an example of how a response might look:
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, test_id = 21, taken_test_ids: [13106, 13119] }
+payload = { company_id: 16, test_id: 21, taken_test_ids: [13106, 13119] }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -888,7 +894,7 @@ The following is an example of how a response might look:
 [
   {
     "id": 13106,
-    "humanized_score": {
+    "score": {
       "en": "140 - Genius or near genius"
     },
     "start_time": "2015-01-27T09:01:32.915Z",
@@ -903,7 +909,7 @@ The following is an example of how a response might look:
   },
   {
     "id": 13119,
-    "humanized_score": {
+    "score": {
       "en": "130 - Superior Intelligence"
     },
     "start_time": "2015-02-11T18:30:21.566Z",
@@ -929,6 +935,113 @@ The following is an example of how a response might look:
 ]
 {% endhighlight %}
 
+# Test Takers API
+The Test Takers API can be accessed with the following URL:
+
+  <p id="url">http://testello.com/api/v1/test_takers</p>
+
+  The Test Takers API supports the following actions:
+
+* * *
+
+|-------+-----------|
+|Action |Description|
+|-------|-----------|
+|index  |Lists all results for a certain test taker|
+|-------+-----------|
+
+* * *
+
+More details on the exact requirements of the action is provided below.
+
+## Listing results for a test taker(index)
+The following table lists the keys that are required to request a list of test taker results:
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret|
+|test_taker_email|This field should be a string and is mandatory for a successful test takers API call, representing the test taker email you want to retrieve results for|
+|-----+-----------|
+
+* * *
+
+If this request is successful, it will return an Array of hashes, each hash will represent a taken test this test taker has taken.
+
+* * *
+
+|-----+-----------|
+|Name |Description|
+|-----|-----------|
+|id   |The taken test ID, this is what should be used when retrieving a result for a certain taken test(s)|
+|score |The score of a taken test. This will be a hash representing the score of the taken test in both English and Arabic languages|
+|start_time|A time stamp that represent when the test was started|
+|duration|This will be an integer representing the time it took a candidate to finish the test in minutes|
+|test|This will be a hash that includes the test id, name, and duration|
+|result_link| This will be a hash of result links per result language|
+|-----+-----------|
+
+* * *
+
+### Examples
+The following code retrieves the results of a test taker with email **john.jack@testello.com** for a company with ID **16**:  
+
+#### Retrieving all results for a test
+
+##### Ruby
+{:.no_toc}
+{% highlight ruby startinline=true %}
+payload = { company_id: 16, test_taker_email: 'john.jack@testello.com' }
+
+# Sending the signed request:
+send_request(payload, 'test_takers', @secret)
+{% endhighlight %}
+
+##### PHP
+{:.no_toc}
+{% highlight php startinline=true %}
+$payload = (array('company_id' => 16, 'test_taker_email' => 'john.jack@testello.com'));
+
+// Sending the signed request:
+sendRequest($payload, 'test_takers', $secret, "GET");
+{% endhighlight %}
+
+##### Python
+{:.no_toc}
+{% highlight python startinline=true %}
+payload = { 'company_id': 16, 'test_taker_email': 'john.jack@testello.com' }
+
+# Sending the signed request:
+send_request(payload, 'test_takers', secret, "GET")
+{% endhighlight %}
+
+The following is an example of how a response might look:
+
+{% highlight javascript %}
+[
+  {
+    "id": 13119,
+    "start_time": "2015-02-11T18:30:21.566Z",
+    "duration": 39,
+    "score": {
+      "en": "130 - Superior Intelligence"
+    },
+    "test": {
+      "id": 21,
+      "name": {
+        "en": "IQ Test",
+        "ar": "إختبار الذكاء (IQ)"
+      },
+      "duration": 60
+    },
+    "result_link": {
+      "en": "https://testello_results.com/7rmtytFxzq6v9oaL%2FW8L1LYMQwE%3D"
+    }
+  }
+]
+{% endhighlight %}
 # Appendix
 
 ## What we need from you
