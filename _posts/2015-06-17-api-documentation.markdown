@@ -40,7 +40,7 @@ The payload string must be a JSON-encoded hash (associative array, dictionary, e
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -71,7 +71,7 @@ The following table lists the keys that are required to request the company API:
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -170,7 +170,7 @@ The following table lists the keys that are required to request a list of all te
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -278,7 +278,7 @@ The following table lists the keys that are required to request a list of all te
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -378,7 +378,7 @@ The following table lists the keys that are required to request a list of all *a
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -470,7 +470,7 @@ The following table lists the keys that are required to request data of an *acti
 |-----|-----------|
 |id |This is the ID used to identify a session by Testello.|
 |company_id |This is the ID used to identify you by Testello.|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -598,7 +598,7 @@ The following table lists the keys that are required to create a new session:
 |-----|-----------|
 |company_id |This is the ID used to identify you by Testello.|
 |session| This is a hash that contains the data required by Testello for creating a new session, the data needed in this hash are represented in the table below|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -766,8 +766,8 @@ The following table lists the keys that are required to request a list of result
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret|
-|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |test_id|This field should be an integer and is mandatory for a successful results API call, representing the test you want to retrieve it's results|
 |taken_test_ids: |This will be an array representing the ID(s) of taken test(s) you want to retrieve it's results|
 |-----+-----------|
@@ -971,7 +971,8 @@ The following table lists the keys that are required to request a list of test t
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the id to allow you access the API, it will be provided to you along with your secret.|
 |test_taker_email|This field should be a string and is mandatory for a successful test takers API call, representing the test taker email you want to retrieve results for|
 |-----+-----------|
 
