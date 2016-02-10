@@ -3,26 +3,6 @@ layout: post
 title:  "API Documentation"
 style: bootstrap.css
 ---
-{% contentfor head %}
-<script>
-$(document).ready(function(){
-  $(window).bind('scroll', function(){
-    if($(window).scrollTop() > 500) {
-      $('#top-link-block').show('slow');
-    } else {
-      $('#top-link-block').fadeOut(1000);
-    }
-  });
-});
-</script>
-{% endcontentfor %}
-{% contentfor navigation %}
-<span id="top-link-block" class="affix pull-right">
-  <a href="#top" class="btn transparent-btn" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-    <span class="fa fa-search">Back to Top</span>
-  </a>
-</span>
-{% endcontentfor %}
 
 <div id="sidebar-wrapper" markdown='1'>
 * Table of Content
