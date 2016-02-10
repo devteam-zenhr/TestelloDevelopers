@@ -3,16 +3,16 @@ layout: post
 title:  "API Documentation"
 style: bootstrap.css
 ---
-
-<div id="sidebar-wrapper" markdown='1'>
+<div class="row">
+<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12" id="overflow">
+<div id="sidebar">
+<div markdown='1'>
 * Table of Content
 {:toc}
 </div>
-
-<div markdown='1' id='documentation'>
-<div class="container-fluid" markdown='1'>
-<div class="row" markdown='1'>
-<div class="col-lg-12" markdown='1'>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-xs-12" markdown='1'>
 
 # Core Concepts
 
@@ -90,7 +90,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves credit and test_taker_params for a company with ID **16**:  
+The following code retrieves credit and test_taker_params for a company with ID **16**:
 
 #### Ruby
 {:.no_toc}
@@ -192,7 +192,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all the tests for a company with ID **16**:  
+The following code retrieves all the tests for a company with ID **16**:
 
 #### Ruby
 {:.no_toc}
@@ -298,7 +298,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all test bundles for a company with ID **16**:  
+The following code retrieves all test bundles for a company with ID **16**:
 
 #### Ruby
 {:.no_toc}
@@ -401,7 +401,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves all the sessions for a company with ID **16**:  
+The following code retrieves all the sessions for a company with ID **16**:
 
 #### Ruby
 {:.no_toc}
@@ -510,7 +510,7 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves a session's information for a company with ID **16** and a session ID **9236**:  
+The following code retrieves a session's information for a company with ID **16** and a session ID **9236**:
 
 #### Ruby
 {:.no_toc}
@@ -996,7 +996,7 @@ If this request is successful, it will return an Array of hashes, each hash will
 * * *
 
 ### Examples
-The following code retrieves the results of a test taker with email **john.jack@testello.com** for a company with ID **16**:  
+The following code retrieves the results of a test taker with email **john.jack@testello.com** for a company with ID **16**:
 
 #### Retrieving all results for a test
 
@@ -1102,7 +1102,7 @@ end
 {:.no_toc}
 {% highlight php startinline=true %}
 <?php
-function send_request($data, $api, $secret, $method) { 
+function send_request($data, $api, $secret, $method) {
   $payload     = json_encode($data);
   $signature   = hash_hmac('sha256', $payload, $secret);
   $b64Payload = base64_encode($payload);
@@ -1164,7 +1164,5 @@ end
 
 We added support to respond with prettified JSON to help you read the responses you are receiving from our servers.
 To receive a prettified JSON response just add   ```pretty: true``` to your payload hash.
-</div>
-</div>
 </div>
 </div>

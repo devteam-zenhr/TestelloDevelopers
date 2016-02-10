@@ -2,14 +2,18 @@
 <html>
   {% include head.html %}
   <body>
-    <div class="jumbotron main-jumbotron">
-      <div class="container">
-        {% include header.html %}
+    <div class="header">
+      <div class="jumbotron main-jumbotron">
+        <div class="container">
+          {% include header.html %}
+        </div>
       </div>
     </div>
-    <div class="container" id="layout_container">
+    <div class="content">
       {{ content }}
     </div>
-    {% include footer.html %}
+    <div class="footer">
+      {% include footer.html %}
+    </div>
   </body>
 </html>
