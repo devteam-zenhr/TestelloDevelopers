@@ -3,6 +3,26 @@ layout: post
 title:  "API Documentation"
 style: bootstrap.css
 ---
+{% contentfor head %}
+<script>
+$(document).ready(function(){
+  $(window).bind('scroll', function(){
+    if($(window).scrollTop() > 500) {
+      $('#top-link-block').show('slow');
+    } else {
+      $('#top-link-block').fadeOut(1000);
+    }
+  });
+});
+</script>
+{% endcontentfor %}
+{% contentfor navigation %}
+<span id="top-link-block" class="affix pull-right">
+  <a href="#top" class="btn transparent-btn" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+    <span class="fa fa-search">Back to Top</span>
+  </a>
+</span>
+{% endcontentfor %}
 
 <div id="sidebar-wrapper" markdown='1'>
 * Table of Content
@@ -39,7 +59,8 @@ The payload string must be a JSON-encoded hash (associative array, dictionary, e
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -59,8 +80,7 @@ Testello will respond to all API calls with a JSON encoded hash. The simplest re
 * * *
 
 # Company API
-The Company API can be accessed with the following URL:  
-
+The Company API can be accessed with the following URL:
 <p id="url">http://testello.com/api/v1/company</p>
 
 The following table lists the keys that are required to request the company API:
@@ -70,7 +90,8 @@ The following table lists the keys that are required to request the company API:
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -94,7 +115,7 @@ The following code retrieves credit and test_taker_params for a company with ID 
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16 }
+payload = { app_id: 22, company_id: 16 }
 
 # Sending the signed request:
 send_request(payload, 'company', @secret)
@@ -103,7 +124,7 @@ send_request(payload, 'company', @secret)
 #### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16));
+$payload = (array('app_id' => 22, company_id' => 16));
 
 // Sending the signed request:
 sendRequest($payload, 'company', $secret, "GET");
@@ -112,7 +133,7 @@ sendRequest($payload, 'company', $secret, "GET");
 #### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16 }
+payload = { 'app_id': 22, 'company_id': 16 }
 
 # Sending the signed request:
 send_request(payload, 'company', secret, "GET")
@@ -144,8 +165,7 @@ The following is an example of how a response might look:
 
 
 # Tests API
-The Tests API can be accessed with the following URL:  
-
+The Tests API can be accessed with the following URL:
 <p id="url">http://testello.com/api/v1/tests</p>
   The Tests API supports the following action:
 
@@ -169,7 +189,8 @@ The following table lists the keys that are required to request a list of all te
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -196,7 +217,7 @@ The following code retrieves all the tests for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16 }
+payload = { app_id: 22, company_id: 16 }
 
 # Sending the signed request:
 send_request(payload, 'tests', @secret)
@@ -205,7 +226,7 @@ send_request(payload, 'tests', @secret)
 #### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16));
+$payload = (array('app_id' => 22, 'company_id' => 16));
 
 // Sending the signed request:
 sendRequest($payload, 'tests', $secret, "GET");
@@ -214,7 +235,7 @@ sendRequest($payload, 'tests', $secret, "GET");
 #### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16 }
+payload = { 'app_id': 22, 'company_id': 16 }
 
 # Sending the signed request:
 send_request(payload, 'tests', secret, "GET")
@@ -252,8 +273,7 @@ The following is an example of how a response might look:
 {% endhighlight %}
 
 # Test Bundles API
-The Test Bundles API can be accessed with the following URL:  
-
+The Test Bundles API can be accessed with the following URL:
 <p id="url">http://testello.com/api/v1/test_bundles</p>
   The Test Bundles API supports the following action:
 
@@ -277,7 +297,8 @@ The following table lists the keys that are required to request a list of all te
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -302,7 +323,7 @@ The following code retrieves all test bundles for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16 }
+payload = { app_id: 22, company_id: 16 }
 
 # Sending the signed request:
 send_request(payload, 'test_bundles', @secret)
@@ -311,7 +332,7 @@ send_request(payload, 'test_bundles', @secret)
 #### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16));
+$payload = (array('app_id' => 22, 'company_id' => 16));
 
 // Sending the signed request:
 sendRequest($payload, 'test_bundles', $secret, "GET");
@@ -320,7 +341,7 @@ sendRequest($payload, 'test_bundles', $secret, "GET");
 #### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16 }
+payload = { 'app_id': 22, 'company_id': 16 }
 
 # Sending the signed request:
 send_request(payload, 'test_bundles', secret, "GET")
@@ -336,6 +357,10 @@ The following is an example of how a response might look:
     "test_ids": [
       5,
       6
+    ],
+    "languages": [
+    "en",
+    "ar"
     ]
   }
 ]
@@ -372,7 +397,8 @@ The following table lists the keys that are required to request a list of all *a
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id: |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -400,7 +426,7 @@ The following code retrieves all the sessions for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16 }
+payload = { app_id: 22, company_id: 16 }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret)
@@ -409,7 +435,7 @@ send_request(payload, 'sessions', @secret)
 #### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16));
+$payload = (array('app_id' => 22, 'company_id' => 16));
 
 // Sending the signed request:
 sendRequest($payload, 'sessions', $secret, "GET");
@@ -418,7 +444,7 @@ sendRequest($payload, 'sessions', $secret, "GET");
 #### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16 }
+payload = { 'app_id' => 22, 'company_id': 16 }
 
 # Sending the signed request:
 send_request(payload, 'sessions', secret, "GET")
@@ -463,7 +489,8 @@ The following table lists the keys that are required to request data of an *acti
 |Name |Description|
 |-----|-----------|
 |id |This is the ID used to identify a session by Testello.|
-|company_id |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id |This is the ID used to identify you by Testello.|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -508,7 +535,7 @@ The following code retrieves a session's information for a company with ID **16*
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16 }
+payload = { app_id: 22, company_id: 16 }
 
 # Sending the signed request:
 send_request(payload, 'sessions/9236', @secret)
@@ -517,7 +544,7 @@ send_request(payload, 'sessions/9236', @secret)
 #### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16));
+$payload = (array('app_id' => 22, 'company_id' => 16));
 
 // Sending the signed request:
 sendRequest($payload, 'sessions/9236', $secret, "GET");
@@ -526,7 +553,7 @@ sendRequest($payload, 'sessions/9236', $secret, "GET");
 #### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16 }
+payload = { 'app_id': 22, 'company_id': 16 }
 
 # Sending the signed request:
 send_request(payload, 'sessions/9236', secret, "GET")
@@ -589,8 +616,9 @@ The following table lists the keys that are required to create a new session:
 |-----+-----------|
 |Name |Description|
 |-----|-----------|
-|company_id |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
+|company_id |This is the ID used to identify you by Testello.|
 |session| This is a hash that contains the data required by Testello for creating a new session, the data needed in this hash are represented in the table below|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |-----+-----------|
 
 * * *
@@ -625,7 +653,7 @@ If this request is successful, it will return a hash that contains the key **dat
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -635,7 +663,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
-$payload = (array('company_id' => 16, array('session' => 'quantity' => 1, (array('schema_params' => 'first_name' => 'Jon', 'last_name' => 'Snow', 'email' => 'jon.snow@testello.com')), 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
+$payload = (array('app_id' => 22, 'company_id' => 16, array('session' => 'quantity' => 1, (array('schema_params' => 'first_name' => 'Jon', 'last_name' => 'Snow', 'email' => 'jon.snow@testello.com')), 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
 
 //Sending the signed request:
 sendRequest($payload, 'sessions', $secret, "POST");
@@ -647,7 +675,7 @@ sendRequest($payload, 'sessions', $secret, "POST");
 from datetime import date, timedelta
 
 expires_at = date.today() + timedelta(30).strftime('%Y-%m-%d')
-payload = { 'company_id': 16, 'session': { 'quantity': 1, 'schema_params': { 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon.snow@testello.com' }, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
+payload = { 'app_id': 22, 'company_id': 16, 'session': { 'quantity': 1, 'schema_params': { 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon.snow@testello.com' }, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', secret, "POST")
@@ -658,7 +686,7 @@ send_request(payload, 'sessions', secret, "POST")
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -668,7 +696,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
-$payload = (array('company_id' => 16, array('session' => 'quantity' => 10, 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
+$payload = (array('app_id' => 22, 'company_id' => 16, array('session' => 'quantity' => 10, 'expires_at' => $expires_at, 'test_id' => 21, 'language' => 'en'));
 
 //Sending the signed request:
 sendRequest($payload, 'sessions', $secret, "POST");
@@ -680,7 +708,7 @@ sendRequest($payload, 'sessions', $secret, "POST");
 from datetime import date, timedelta
 
 expires_at = date.today() + timedelta(30).strftime('%Y-%m-%d')
-payload = { 'company_id': 16, 'session': { 'quantity': 10, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
+payload = { 'app_id': 22, 'company_id': 16, 'session': { 'quantity': 10, 'expires_at': expires_at, 'test_id': 21, 'language': 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', secret, "POST")
@@ -691,7 +719,7 @@ send_request(payload, 'sessions', secret, "POST")
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -701,7 +729,7 @@ send_request(payload, 'sessions', @secret, "POST")
 {:.no_toc}
 {% highlight php startinline=true %}
 $expires_at = mktime(0, 0, 0, date("m")+1  , date("d"), date("Y"));
-$payload = (array('company_id' => 16, array('session' => 'quantity' => 3, 'expires_at' => $expires_at, 'test_bundle_id' => 108, 'language' => 'en'));
+$payload = (array('app_id' => 22, 'company_id' => 16, array('session' => 'quantity' => 3, 'expires_at' => $expires_at, 'test_bundle_id' => 108, 'language' => 'en'));
 
 //Sending the signed request:
 sendRequest($payload, 'sessions', $secret, "POST");
@@ -759,6 +787,7 @@ The following table lists the keys that are required to request a list of result
 |Name |Description|
 |-----|-----------|
 |company_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret|
+|app_id: |This is the ID used to identify you by Testello, it will be provided to you along with your secret.|
 |test_id|This field should be an integer and is mandatory for a successful results API call, representing the test you want to retrieve it's results|
 |taken_test_ids: |This will be an array representing the ID(s) of taken test(s) you want to retrieve it's results|
 |-----+-----------|
@@ -782,14 +811,14 @@ If this request is successful, it will return a hash that contains the key **dat
 * * *
 
 ### Examples
-The following code retrieves the results of a test with ID **21** for a company with ID **16**:  
+The following code retrieves the results of a test with ID **21** for a company with ID **16**:
 
 #### Retrieving all results for a test
 
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, test_id: 21 }
+payload = { app_id: 22, company_id: 16, test_id = 21 }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -798,7 +827,7 @@ send_request(payload, 'results', @secret)
 ##### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16, 'test_id' => 21));
+$payload = (array('app_id' => 22, 'company_id' => 16, 'test_id' => 21));
 
 // Sending the signed request:
 sendRequest($payload, 'results', $secret, "GET");
@@ -807,7 +836,7 @@ sendRequest($payload, 'results', $secret, "GET");
 ##### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16, 'test_id': 21 }
+payload = { 'app_id': 22, 'company_id': 16, 'test_id': 21 }
 
 # Sending the signed request:
 send_request(payload, 'results', secret, "GET")
@@ -865,7 +894,7 @@ The following is an example of how a response might look:
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, test_id: 21, taken_test_ids: [13106, 13119] }
+payload = { app_id: 22, company_id: 16, test_id = 21, taken_test_ids: [13106, 13119] }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -874,7 +903,7 @@ send_request(payload, 'results', @secret)
 ##### PHP
 {:.no_toc}
 {% highlight php startinline=true %}
-$payload = (array('company_id' => 16, 'test_id' => 21, 'taken_test_ids' => array(13106, 13119)));
+$payload = (array('app_id' => 22, 'company_id' => 16, 'test_id' => 21, 'taken_test_ids' => array(13106, 13119)));
 
 // Sending the signed request:
 sendRequest($payload, 'results', $secret, "GET");
@@ -883,7 +912,7 @@ sendRequest($payload, 'results', $secret, "GET");
 ##### Python
 {:.no_toc}
 {% highlight python startinline=true %}
-payload = { 'company_id': 16, 'test_id': 21, 'taken_test_ids': [13106, 13119] }
+payload = { 'app_id': 22, 'company_id': 16, 'test_id': 21, 'taken_test_ids': [13106, 13119] }
 
 # Sending the signed request:
 send_request(payload, 'results', secret, "GET")
