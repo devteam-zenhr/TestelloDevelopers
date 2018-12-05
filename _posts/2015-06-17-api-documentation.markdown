@@ -95,7 +95,7 @@ The following code retrieves credit and test_taker_params for a company with ID 
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'company', @secret)
@@ -197,7 +197,7 @@ The following code retrieves all the tests for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'tests', @secret)
@@ -303,7 +303,7 @@ The following code retrieves all test bundles for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'test_bundles', @secret)
@@ -406,7 +406,7 @@ The following code retrieves all the sessions for a company with ID **16**:
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret)
@@ -515,7 +515,7 @@ The following code retrieves a session's information for a company with ID **16*
 #### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'sessions/9236', @secret)
@@ -633,7 +633,7 @@ If this request is successful, it will return a hash that contains the key **dat
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16, session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com', session: { quantity: 1, schema_params: { first_name: 'Jon', last_name: 'Snow', email: 'jon.snow@testello.com' }, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -666,7 +666,7 @@ send_request(payload, 'sessions', secret, "POST")
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16, session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com', session: { quantity: 10, expires_at: Date.today.end_of_month, test_id: 21, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -699,7 +699,7 @@ send_request(payload, 'sessions', secret, "POST")
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16, session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com', session: { quantity: 3, expires_at: Date.today.end_of_month, test_bundle_id: 108, language: 'en' } } }
 
 # Sending the signed request:
 send_request(payload, 'sessions', @secret, "POST")
@@ -798,7 +798,7 @@ The following code retrieves the results of a test with ID **21** for a company 
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16, test_id = 21 }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com', test_id = 21 }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -874,7 +874,7 @@ The following is an example of how a response might look:
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { app_id: 22, company_id: 16, test_id = 21, taken_test_ids: [13106, 13119] }
+payload = { app_id: 22, company_id: 16, consumer_id: 22, user_email: 'test@testello.com', test_id = 21, taken_test_ids: [13106, 13119] }
 
 # Sending the signed request:
 send_request(payload, 'results', @secret)
@@ -1003,7 +1003,7 @@ The following code retrieves the results of a test taker with email **john.jack@
 ##### Ruby
 {:.no_toc}
 {% highlight ruby startinline=true %}
-payload = { company_id: 16, test_taker_email: 'john.jack@testello.com' }
+payload = { company_id: 16, consumer_id: 22, user_email: 'test@testello.com', test_taker_email: 'john.jack@testello.com' }
 
 # Sending the signed request:
 send_request(payload, 'test_takers', @secret)
