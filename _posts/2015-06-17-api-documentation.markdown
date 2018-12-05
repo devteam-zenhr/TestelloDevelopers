@@ -34,6 +34,8 @@ eyJjb21wYW55X2lkIjoxfQ==
 
 The payload string must be a JSON-encoded hash (associative array, dictionary, etc.) which contains the request data. Each action will have different requirements for this hash. However, the following key is required by Testello’s API for all the requests it receives:
 
+Please note that you can send the user_email param in each request in order to check for his permissions before applying the action
+
 * * *
 
 
